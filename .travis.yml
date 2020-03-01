@@ -1,0 +1,9 @@
+language: swift
+os_image: xcode11.2
+install:
+    - brew install danger/tap/danger-swift
+script:
+    - danger-swift ci
+#    - xcodebuild clean build -project SampleDanger.xcodeproj  -scheme SampleDanger -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.2.2'
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
